@@ -1,0 +1,18 @@
+*[theme-type="light"] {
+  --pixel-font-family: 'PixelArial';
+  --pixel-primary: #22457f;
+  --pixel-secondary: #448aff;
+  --pixel-accent: #ffaf2b;
+  --pixel-text-color-1: #202020;
+  --pixel-text-color-2: #FDFDFD;
+  --pixel-border: #202020;
+}
+*[theme-type="dark"] {
+  --pixel-font-family: 'PixelArial';
+  --pixel-primary: #22457f;
+  --pixel-secondary: #448aff;
+  --pixel-accent: #ffaf2b;
+  --pixel-text-color-1: #FDFDFD;
+  --pixel-text-color-2: #202020;
+  --pixel-border: #FDFDFD;
+}

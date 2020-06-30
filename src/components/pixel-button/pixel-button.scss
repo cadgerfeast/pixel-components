@@ -1,0 +1,153 @@
+pixel-button {
+  // Global
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: text-bottom;
+  > div.pixel-wrapper {
+    position: absolute;
+    box-sizing: inherit;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-family: var(--pixel-font-family);
+    font-weight: bold;
+    cursor: pointer;
+    box-sizing: inherit;
+    border: none;
+    text-transform: var(--pixel-button-text-transform);
+    &:focus {
+      outline: none;
+    }
+  }
+  // Default
+  // Flat
+  > button {
+    background-color: var(--pixel-button-background-color, transparent);
+    color: var(--pixel-button-color, var(--pixel-primary));
+    padding: 7px 16px;
+    &.icon {
+      padding: 2px;
+    }
+  }
+  &[secondary] {
+    > button {
+      color: var(--pixel-secondary);
+    }
+  }
+  &[accent] {
+    > button {
+      color: var(--pixel-accent);
+    }
+  }
+  &.hovered, &.focused {
+    > .pixel-wrapper {
+      background-color: rgba(32, 32, 32, .1);
+    }
+  }
+  &:active {
+    > .pixel-wrapper {
+      background-color: rgba(32, 32, 32, .3);
+    }
+  }
+  // Raised
+  &[raised] {
+    border: 2px solid var(--pixel-button-border-color, var(--pixel-border));
+    > div.pixel-wrapper {
+      border-top: 2px solid rgba(255, 255, 255, .25);
+      border-bottom: 2px solid rgba(0, 0, 0, .25);
+    }
+    > button {
+      // Default Primary
+      background-color: var(--pixel-button-background-color, var(--pixel-primary));
+      color: var(--pixel-button-color, var(--pixel-text-color-2));
+      padding: 5px 16px;
+      &.icon {
+        padding: 0 2px;
+      }
+    }
+    &[secondary] {
+      > button {
+        background-color: var(--pixel-button-background-color, var(--pixel-secondary));
+      }
+    }
+    &[accent] {
+      > button {
+        background-color: var(--pixel-button-background-color, var(--pixel-accent));
+      }
+    }
+    &.hovered, &.focused {
+      > div.pixel-wrapper {
+        background-color: rgba(255, 255, 255, .1);
+        border-top: 2px solid rgba(255, 255, 255, .25);
+        border-bottom: 2px solid rgba(0, 0, 0, .25);
+      }
+    }
+    &:active {
+      > div.pixel-wrapper {
+        background-color: rgba(0, 0, 0, .1);
+        border-top: 2px solid rgba(0, 0, 0, .25);
+        border-bottom: 2px solid rgba(255, 255, 255, .25);
+      }
+    }
+  }
+  // Outlined
+  &[outlined] {
+    // Default primary
+    border: 2px solid var(--pixel-button-border-color, var(--pixel-primary));
+    &[secondary] {
+      border-color: var(--pixel-secondary);
+    }
+    &[accent] {
+      border-color: var(--pixel-accent);
+    }
+    > button {
+      padding: 5px 16px;
+      &.icon {
+        padding: 0 2px;
+      }
+    }
+  }
+  // Rounded
+  &[rounded] {
+    border-radius: 16px;
+    > div.pixel-wrapper {
+      border-radius: 16px;
+    }
+    > button {
+      border-radius: 16px;
+      &.icon {
+        padding: 0;
+      }
+    }
+  }
+  // Stripped
+  &[stripped] {
+    > button {
+      background-image: linear-gradient(
+        135deg,
+        var(--pixel-button-background-color) 25%,
+        rgba(0, 0, 0, .1) 25%,
+        rgba(0, 0, 0, .1) 50%,
+        var(--pixel-button-background-color) 50%,
+        var(--pixel-button-background-color) 75%,
+        rgba(0, 0, 0, .1) 75%,
+        rgba(0, 0, 0, .1) 100%);
+      background-size: 28.28px 28.28px;
+    }
+  }
+  // Disabled
+  &[disabled] {
+    pointer-events: none;
+    opacity: .5;
+  }
+}

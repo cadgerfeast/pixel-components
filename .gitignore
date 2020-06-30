@@ -1,0 +1,5 @@
+.docs/
+coverage/
+dist/
+loader/
+node_modules/
