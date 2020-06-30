@@ -1,0 +1,47 @@
+@font-face {
+	font-family: "PixelIcons";
+	src: url("PixelIcons.eot?36c53c0b0dfea1073f5096d475957df4?#iefix") format("embedded-opentype"),
+url("PixelIcons.woff2?36c53c0b0dfea1073f5096d475957df4") format("woff2"),
+url("PixelIcons.woff?36c53c0b0dfea1073f5096d475957df4") format("woff"),
+url("PixelIcons.ttf?36c53c0b0dfea1073f5096d475957df4") format("truetype"),
+url("PixelIcons.svg?36c53c0b0dfea1073f5096d475957df4#PixelIcons") format("svg");
+}
+
+.pi {
+	line-height: 1;
+}
+
+.pi:before {
+	font-family: PixelIcons !important;
+	font-style: normal;
+	font-weight: normal !important;
+	vertical-align: top;
+}
+
+.pi-pipe-top:before {
+	content: "\f101";
+}
+.pi-phone:before {
+	content: "\f102";
+}
+.pi-internet-explorer:before {
+	content: "\f103";
+}
+.pi-home:before {
+	content: "\f104";
+}
+.pi-eye:before {
+	content: "\f105";
+}
+.pi-code:before {
+	content: "\f106";
+}
+.pi-chevron-right:before {
+	content: "\f107";
+}
+.pi-chevron-left:before {
+	content: "\f108";
+}
+.pi-chat:before {
+	content: "\f109";
+}

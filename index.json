@@ -1,0 +1,1 @@
+{"title":"Pixel Components","sections":[{"type":"md","content":"<h1 id=\"pixel-components\">Pixel Components</h1>\n<p>TODO</p>\n<pre><code class=\"language-bash\"><pre class=\"language-bash\"><code class=\"language-bash\"># Install dependencies\nnpm install --save @pixel/components\n# Recommended: Fonts\nnpm install --save @pixel/fonts</code></pre></code></pre>\n"}]}

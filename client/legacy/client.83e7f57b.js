@@ -1,0 +1,1 @@
+import"./index.5000990b.js";import"./asyncToGenerator.8200d3ef.js";import"./utils.74e58876.js";import"./index.b2228143.js";import{s as e}from"./app.7d28715e.js";e({target:document.getElementById("app")});
