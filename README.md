@@ -10,7 +10,10 @@
 ## Installation
 
 ``` bash
-npm install vue-konami --save
+# Install
+npm install @pixel/components --save
+# Recommended: Fonts
+npm install --save @pixel/fonts
 ```
 
 ## Usage

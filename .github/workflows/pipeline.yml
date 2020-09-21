@@ -41,7 +41,7 @@ jobs:
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     - name: Domain
-      run: echo "pixel.cadgerfeast.dev" > "./docs/CNAME"
+      run: echo "pixel.cadgerfeast.dev" > "./.docs/CNAME"
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:

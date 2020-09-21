@@ -135,14 +135,40 @@ pixel-button {
     > button {
       background-image: linear-gradient(
         135deg,
-        var(--pixel-button-background-color) 25%,
+        var(--pixel-button-background-color, var(--pixel-primary)) 25%,
         rgba(0, 0, 0, .1) 25%,
         rgba(0, 0, 0, .1) 50%,
-        var(--pixel-button-background-color) 50%,
-        var(--pixel-button-background-color) 75%,
+        var(--pixel-button-background-color, var(--pixel-primary)) 50%,
+        var(--pixel-button-background-color, var(--pixel-primary)) 75%,
         rgba(0, 0, 0, .1) 75%,
         rgba(0, 0, 0, .1) 100%);
       background-size: 28.28px 28.28px;
+    }
+    &[secondary] {
+      > button {
+        background-image: linear-gradient(
+          135deg,
+          var(--pixel-button-background-color, var(--pixel-secondary)) 25%,
+          rgba(0, 0, 0, .1) 25%,
+          rgba(0, 0, 0, .1) 50%,
+          var(--pixel-button-background-color, var(--pixel-secondary)) 50%,
+          var(--pixel-button-background-color, var(--pixel-secondary)) 75%,
+          rgba(0, 0, 0, .1) 75%,
+          rgba(0, 0, 0, .1) 100%);
+      }
+    }
+    &[accent] {
+      > button {
+        background-image: linear-gradient(
+          135deg,
+          var(--pixel-button-background-color, var(--pixel-accent)) 25%,
+          rgba(0, 0, 0, .1) 25%,
+          rgba(0, 0, 0, .1) 50%,
+          var(--pixel-button-background-color, var(--pixel-accent)) 50%,
+          var(--pixel-button-background-color, var(--pixel-accent)) 75%,
+          rgba(0, 0, 0, .1) 75%,
+          rgba(0, 0, 0, .1) 100%);
+      }
     }
   }
   // Disabled

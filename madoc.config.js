@@ -1,22 +1,24 @@
+const pkg = require('./package.json');
+
 module.exports = {
-  dist: '.docs',
-  watch: [
-    './src/**/*'
-  ],
-  static: [
+  title: 'Pixel Components',
+  description: pkg.description,
+  distPath: '.docs',
+  // TODO watch
+  assets: [
     {
-      src: './src/style'
+      src: 'src/style'
     },
     {
-      src: './node_modules/@pixel/fonts/dist',
-      dest: './fonts'
+      src: 'node_modules/@pixel/fonts/dist',
+      dest: 'fonts'
     },
     {
-      src: './node_modules/@pixel/icons/fonts',
-      dest: './icons'
+      src: 'node_modules/@pixel/icons/fonts',
+      dest: 'icons'
     },
     {
-      src: './dist'
+      src: 'dist'
     }
   ],
   head: [

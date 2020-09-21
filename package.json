@@ -1,7 +1,7 @@
 {
   "name": "@pixel/components",
-  "version": "0.0.2",
   "description": "Pixel Styled Stencil WebComponents",
+  "version": "0.0.3",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
@@ -15,18 +15,19 @@
     "loader/"
   ],
   "scripts": {
-    "build": "run-s build:lib build:docs",
-    "build:lib": "stencil build",
-    "build:docs": "madoc build",
     "dev": "run-p dev:lib dev:docs",
     "dev:lib": "stencil build --dev --watch",
     "dev:docs": "madoc dev",
     "test": "stencil test --spec --coverage",
-    "test.watch": "stencil test --spec --watchAll",
-    "serve:docs": "madoc serve"
+    "test:watch": "stencil test --spec --watchAll",
+    "build": "run-s build:lib build:docs",
+    "build:lib": "stencil build",
+    "build:docs": "madoc build",
+    "serve": "madoc serve"
   },
   "devDependencies": {
-    "@madoc/core": "0.0.13",
+    "@madoc/component-repl": "0.0.7",
+    "@madoc/core": "0.0.16",
     "@pixel/fonts": "0.0.1",
     "@pixel/icons": "0.0.8",
     "@stencil/core": "1.12.2",

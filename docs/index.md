@@ -1,13 +1,4 @@
 ---
 title: Pixel Components
+content: ../README.md
 ---
-# Pixel Components
-
-TODO
-
-``` bash
-# Install dependencies
-npm install --save @pixel/components
-# Recommended: Fonts
-npm install --save @pixel/fonts
-```
