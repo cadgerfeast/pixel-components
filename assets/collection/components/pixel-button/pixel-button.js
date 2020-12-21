@@ -1,4 +1,5 @@
-import { Component, Element, Host, h, State, Prop } from '@stencil/core';
+import { Component, Element, Host, h, Prop, State } from '@stencil/core';
+import { KeyboardCode } from '../../helpers/keyboard';
 export class PixelButton {
     constructor() {
         // Props
@@ -10,10 +11,9 @@ export class PixelButton {
         this.primary = false;
         this.secondary = false;
         this.accent = false;
-        this.uppercase = false;
-        // States
-        this.focused = false;
-        this.hovered = false;
+        // State
+        this.hasTriggeredOnce = false;
+        this.active = false;
     }
     // Computed
     get hasPixelIcon() {
@@ -21,51 +21,63 @@ export class PixelButton {
         return child && child.tagName === 'PIXEL-ICON';
     }
     get computedStyle() {
-        return Object.assign(Object.assign(Object.assign(Object.assign({}, (this.color && { '--pixel-button-color': this.color })), (this.backgroundColor && { '--pixel-button-background-color': this.backgroundColor })), (this.borderColor && { '--pixel-button-border-color': this.borderColor })), (this.computedTextTransform && { '--pixel-text-transform': this.computedTextTransform }));
-    }
-    get computedTextTransform() {
-        return this.uppercase ? 'uppercase' : 'none';
+        return Object.assign(Object.assign(Object.assign({}, (this.color && { '--pixel-button-color': this.color })), (this.backgroundColor && { '--pixel-button-background-color': this.backgroundColor })), (this.borderColor && { '--pixel-button-border-color': this.borderColor }));
     }
     // Handlers
-    onClick(event) {
-        event.pixelTarget = this.root;
-        if (this.disabled) {
-            event.preventDefault();
-            event.stopPropagation();
+    onKeyDown(e) {
+        switch (e.code) {
+            case KeyboardCode.SPACE:
+            case KeyboardCode.ENTER:
+                this.active = true;
+                break;
         }
     }
-    onFocus(event) {
-        event.pixelTarget = this.root;
-        if (this.disabled) {
-            event.preventDefault();
-            event.stopPropagation();
+    onKeyPress(e) {
+        switch (e.code) {
+            case KeyboardCode.SPACE:
+            case KeyboardCode.ENTER:
+                if (!this.hasTriggeredOnce) {
+                    this.root.click();
+                }
+                this.hasTriggeredOnce = true;
+                e.preventDefault();
+                break;
         }
-        else {
-            this.focused = true;
+    }
+    onKeyUp(e) {
+        switch (e.code) {
+            case KeyboardCode.SPACE:
+            case KeyboardCode.ENTER:
+                this.active = false;
+                this.hasTriggeredOnce = false;
+                break;
         }
-    }
-    onBlur(event) {
-        event.pixelTarget = this.root;
-        this.focused = false;
-    }
-    onMouseOver(event) {
-        event.pixelTarget = this.root;
-        this.hovered = true;
-    }
-    onMouseOut(event) {
-        event.pixelTarget = this.root;
-        this.hovered = false;
     }
     // Lifecycle
+    componentWillRender() {
+        // Default Shape
+        if (!this.flat && !this.raised && !this.outlined) {
+            this.raised = true;
+        }
+        // Default Theme
+        if (!this.primary && !this.secondary && !this.accent) {
+            this.secondary = true;
+        }
+    }
+    componentDidLoad() {
+        if (this.autofocus) {
+            this.root.focus();
+        }
+    }
     render() {
-        return (h(Host, { tabindex: "-1", class: {
-                'focused': this.focused,
-                'hovered': this.hovered
+        return (h(Host, { tabIndex: (this.disabled) ? -1 : 0, onKeyDown: (e) => { this.onKeyDown(e); }, onKeypress: (e) => { this.onKeyPress(e); }, onKeyUp: (e) => { this.onKeyUp(e); }, class: {
+                'active': this.active
             }, style: this.computedStyle },
-            h("div", { tabindex: "-1", class: "pixel-wrapper" }),
-            h("button", { class: {
+            h("div", { class: "pixel-wrapper" }),
+            h("div", { class: {
+                    'pixel-button': true,
                     'icon': this.hasPixelIcon
-                }, autoFocus: this.autofocus, tabIndex: (this.disabled) ? -1 : 0, onClick: (event) => this.onClick(event), onFocus: (event) => this.onFocus(event), onBlur: (event) => this.onBlur(event), onMouseOver: (event) => this.onMouseOver(event), onMouseOut: (event) => this.onMouseOut(event) },
+                } },
                 h("slot", null))));
     }
     static get is() { return "pixel-button"; }
@@ -145,7 +157,7 @@ export class PixelButton {
                 "text": ""
             },
             "attribute": "raised",
-            "reflect": false,
+            "reflect": true,
             "defaultValue": "false"
         },
         "outlined": {
@@ -216,7 +228,7 @@ export class PixelButton {
                 "text": ""
             },
             "attribute": "secondary",
-            "reflect": false,
+            "reflect": true,
             "defaultValue": "false"
         },
         "accent": {
@@ -287,29 +299,11 @@ export class PixelButton {
             },
             "attribute": "border-color",
             "reflect": false
-        },
-        "uppercase": {
-            "type": "boolean",
-            "mutable": false,
-            "complexType": {
-                "original": "boolean",
-                "resolved": "boolean",
-                "references": {}
-            },
-            "required": false,
-            "optional": false,
-            "docs": {
-                "tags": [],
-                "text": ""
-            },
-            "attribute": "uppercase",
-            "reflect": false,
-            "defaultValue": "false"
         }
     }; }
     static get states() { return {
-        "focused": {},
-        "hovered": {}
+        "hasTriggeredOnce": {},
+        "active": {}
     }; }
     static get elementRef() { return "root"; }
 }

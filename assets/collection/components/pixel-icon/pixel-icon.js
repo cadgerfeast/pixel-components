@@ -1,6 +1,6 @@
 import { Component, Element, Host, h, Prop, State } from '@stencil/core';
 import icons from '@pixel/icons';
-import { grayscale, replaceAll, str2rgb } from '../../utils/utils';
+import { grayscale, replaceAll, str2rgb } from '../../helpers/string';
 export class PixelIcon {
     // Methods
     computeIcon() {

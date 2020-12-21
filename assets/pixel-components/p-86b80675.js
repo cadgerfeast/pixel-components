@@ -1,0 +1,1 @@
+var a;!function(a){a.ENTER="Enter",a.SPACE="Space"}(a||(a={}));export{a as K}

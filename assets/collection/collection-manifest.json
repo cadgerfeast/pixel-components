@@ -1,7 +1,9 @@
 {
   "entries": [
     "./components/pixel-button/pixel-button.js",
-    "./components/pixel-icon/pixel-icon.js"
+    "./components/pixel-icon/pixel-icon.js",
+    "./components/pixel-toggle/pixel-toggle.js",
+    "./components/pixel-tooltip/pixel-tooltip.js"
   ],
   "compiler": {
     "name": "@stencil/core",

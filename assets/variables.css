@@ -3,16 +3,26 @@
   --pixel-primary: #22457f;
   --pixel-secondary: #448aff;
   --pixel-accent: #ffaf2b;
+  --pixel-background: #FDFDFD;
   --pixel-text-color-1: #202020;
   --pixel-text-color-2: #FDFDFD;
-  --pixel-border: #202020;
+  --pixel-border-1: #202020;
+  --pixel-border-2: #FDFDFD;
+  --pixel-wrapper-color: #000000;
+  --pixel-hover-amount: .1;
+  --pixel-active-amount: .3;
 }
 *[theme-type="dark"] {
   --pixel-font-family: 'PixelArial';
   --pixel-primary: #22457f;
   --pixel-secondary: #448aff;
   --pixel-accent: #ffaf2b;
+  --pixel-background: #333333;
   --pixel-text-color-1: #FDFDFD;
   --pixel-text-color-2: #202020;
-  --pixel-border: #FDFDFD;
+  --pixel-border-1: #FDFDFD;
+  --pixel-border-2: #202020;
+  --pixel-wrapper-color: #FFFFFF;
+  --pixel-hover-amount: .1;
+  --pixel-active-amount: .3;
 }

@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-4e7e0a2f.js');
+const index = require('./index-a2c51f97.js');
 
 const phone = {
 	tags: [

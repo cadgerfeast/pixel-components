@@ -12,21 +12,18 @@ export declare class PixelButton {
     color: string;
     backgroundColor: string;
     borderColor: string;
-    uppercase: boolean;
-    focused: boolean;
-    hovered: boolean;
+    hasTriggeredOnce: boolean;
+    active: boolean;
     get hasPixelIcon(): boolean;
     get computedStyle(): {
-        '--pixel-text-transform': string;
         '--pixel-button-border-color': string;
         '--pixel-button-background-color': string;
         '--pixel-button-color': string;
     };
-    get computedTextTransform(): "none" | "uppercase";
-    onClick(event: PixelMouseEvent): void;
-    onFocus(event: PixelFocusEvent): void;
-    onBlur(event: PixelFocusEvent): void;
-    onMouseOver(event: PixelMouseEvent): void;
-    onMouseOut(event: PixelMouseEvent): void;
+    onKeyDown(e: KeyboardEvent): void;
+    onKeyPress(e: KeyboardEvent): void;
+    onKeyUp(e: KeyboardEvent): void;
+    componentWillRender(): void;
+    componentDidLoad(): void;
     render(): any;
 }

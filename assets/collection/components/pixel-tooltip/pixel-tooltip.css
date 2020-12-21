@@ -1,0 +1,23 @@
+pixel-tooltip {
+  display: none;
+  box-sizing: border-box;
+  z-index: 4;
+}
+pixel-tooltip > div.tooltip-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: var(--pixel-align-x);
+  align-items: var(--pixel-align-y);
+  white-space: nowrap;
+}
+pixel-tooltip > div.tooltip-wrapper > div.tooltip-content {
+  position: absolute;
+  padding: 5px 10px;
+  font-family: var(--pixel-font-family);
+  background-color: var(--pixel-tooltip-background-color, var(--pixel-background));
+  color: var(--pixel-tooltip-color, var(--pixel-text-color-1));
+  border: 2px solid var(--pixel-tooltip-border-color, var(--pixel-border-1));
+}
+pixel-tooltip.active {
+  display: inline-block;
+}

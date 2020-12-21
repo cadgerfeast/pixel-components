@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './index-7679ad4f.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './index-c6358225.js';
 var phone = {
     tags: [
         "media"
