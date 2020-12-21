@@ -1,11 +1,11 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { PixelButton } from './pixel-button';
+import { PixelToggle } from './pixel-toggle';
 
-describe('pixel-button', () => {
+describe('pixel-toggle', () => {
   it('builds', async () => {
     const page = await newSpecPage({
-      components: [PixelButton],
-      html: `<pixel-button></pixel-button>`,
+      components: [PixelToggle],
+      html: `<pixel-toggle></pixel-toggle>`,
     });
     expect(page.root).toBeDefined();
   });

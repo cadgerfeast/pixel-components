@@ -4,9 +4,13 @@ pixel-button {
   display: inline-block;
   box-sizing: border-box;
   vertical-align: text-bottom;
+  user-select: none;
+  &:hover, &:focus, &:active {
+    outline: none;
+  }
   > div.pixel-wrapper {
     position: absolute;
-    box-sizing: inherit;
+    box-sizing: border-box;
     z-index: 1;
     top: 0;
     right: 0;
@@ -14,7 +18,7 @@ pixel-button {
     left: 0;
     pointer-events: none;
   }
-  > button {
+  > div.pixel-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,98 +26,180 @@ pixel-button {
     font-family: var(--pixel-font-family);
     font-weight: bold;
     cursor: pointer;
-    box-sizing: inherit;
+    box-sizing: border-box;
     border: none;
     text-transform: var(--pixel-button-text-transform);
-    &:focus {
-      outline: none;
-    }
   }
-  // Default
   // Flat
-  > button {
-    background-color: var(--pixel-button-background-color, transparent);
-    color: var(--pixel-button-color, var(--pixel-primary));
-    padding: 7px 16px;
-    &.icon {
-      padding: 2px;
+  &[flat] {
+    > div.pixel-button {
+      background-color: var(--pixel-button-background-color, transparent);
+      padding: 7px 16px;
+      &.icon {
+        padding: 2px;
+      }
     }
-  }
-  &[secondary] {
-    > button {
-      color: var(--pixel-secondary);
+    &[primary] {
+      > div.pixel-button {
+        color: var(--pixel-primary);
+      }
     }
-  }
-  &[accent] {
-    > button {
-      color: var(--pixel-accent);
+    &[secondary] {
+      > div.pixel-button {
+        color: var(--pixel-secondary);
+      }
     }
-  }
-  &.hovered, &.focused {
-    > .pixel-wrapper {
-      background-color: rgba(32, 32, 32, .1);
+    &[accent] {
+      > div.pixel-button {
+        color: var(--pixel-accent);
+      }
     }
-  }
-  &:active {
-    > .pixel-wrapper {
-      background-color: rgba(32, 32, 32, .3);
+    &:hover, &:focus {
+      > .pixel-wrapper {
+        background-color: var(--pixel-wrapper-color);
+        opacity: var(--pixel-hover-amount);
+      }
+    }
+    &:active, &.active {
+      > .pixel-wrapper {
+        background-color: var(--pixel-wrapper-color);
+        opacity: var(--pixel-active-amount);
+      }
     }
   }
   // Raised
   &[raised] {
-    border: 2px solid var(--pixel-button-border-color, var(--pixel-border));
+    border: 2px solid var(--pixel-button-border-color, var(--pixel-border-1));
     > div.pixel-wrapper {
       border-top: 2px solid rgba(255, 255, 255, .25);
       border-bottom: 2px solid rgba(0, 0, 0, .25);
     }
-    > button {
-      // Default Primary
+    > div.pixel-button {
+      // Primary
       background-color: var(--pixel-button-background-color, var(--pixel-primary));
       color: var(--pixel-button-color, var(--pixel-text-color-2));
       padding: 5px 16px;
       &.icon {
-        padding: 0 2px;
+        padding: 0.5px 2px;
       }
     }
     &[secondary] {
-      > button {
+      > div.pixel-button {
         background-color: var(--pixel-button-background-color, var(--pixel-secondary));
+        color: var(--pixel-button-color, var(--pixel-text-color-2));
       }
     }
     &[accent] {
-      > button {
+      > div.pixel-button {
         background-color: var(--pixel-button-background-color, var(--pixel-accent));
+        color: var(--pixel-button-color, var(--pixel-text-color-2));
       }
     }
-    &.hovered, &.focused {
+    &:hover, &:focus {
       > div.pixel-wrapper {
-        background-color: rgba(255, 255, 255, .1);
-        border-top: 2px solid rgba(255, 255, 255, .25);
-        border-bottom: 2px solid rgba(0, 0, 0, .25);
+        background-color: rgba(0, 0, 0, .5);
+        border-top: 2px solid white;
+        border-bottom: 2px solid black;
+        opacity: .25;
       }
     }
-    &:active {
+    &:active, &.active {
       > div.pixel-wrapper {
-        background-color: rgba(0, 0, 0, .1);
-        border-top: 2px solid rgba(0, 0, 0, .25);
-        border-bottom: 2px solid rgba(255, 255, 255, .25);
+        background-color: rgba(0, 0, 0, .5);
+        border-top: 2px solid black;
+        border-bottom: 2px solid white;
+        opacity: .5;
+      }
+    }
+    // Stripped
+    &[stripped] {
+      &[primary] {
+        > div.pixel-button {
+          background-image:
+            linear-gradient(
+              135deg,
+              var(--pixel-button-background-color, var(--pixel-primary)) 25%,
+              rgba(0, 0, 0, .1) 25%,
+              rgba(0, 0, 0, .1) 50%,
+              var(--pixel-button-background-color, var(--pixel-primary)) 50%,
+              var(--pixel-button-background-color, var(--pixel-primary)) 75%,
+              rgba(0, 0, 0, .1) 75%,
+              rgba(0, 0, 0, .1) 100%
+            );
+          background-size: 28.28px 28.28px;
+        }
+      }
+      &[secondary] {
+        > div.pixel-button {
+          background-image:
+            linear-gradient(
+              135deg,
+              var(--pixel-button-background-color, var(--pixel-secondary)) 25%,
+              rgba(0, 0, 0, .1) 25%,
+              rgba(0, 0, 0, .1) 50%,
+              var(--pixel-button-background-color, var(--pixel-secondary)) 50%,
+              var(--pixel-button-background-color, var(--pixel-secondary)) 75%,
+              rgba(0, 0, 0, .1) 75%,
+              rgba(0, 0, 0, .1) 100%
+            );
+          background-size: 28.28px 28.28px;
+        }
+      }
+      &[accent] {
+        > div.pixel-button {
+          background-image: 
+            linear-gradient(
+              135deg,
+              var(--pixel-button-background-color, var(--pixel-accent)) 25%,
+              rgba(0, 0, 0, .1) 25%,
+              rgba(0, 0, 0, .1) 50%,
+              var(--pixel-button-background-color, var(--pixel-accent)) 50%,
+              var(--pixel-button-background-color, var(--pixel-accent)) 75%,
+              rgba(0, 0, 0, .1) 75%,
+              rgba(0, 0, 0, .1) 100%
+            );
+          background-size: 28.28px 28.28px;
+        }
       }
     }
   }
   // Outlined
   &[outlined] {
-    // Default primary
-    border: 2px solid var(--pixel-button-border-color, var(--pixel-primary));
+    background-color: var(--pixel-button-background-color, transparent);
+    &[primary] {
+      border: 2px solid var(--pixel-primary);
+      > div.pixel-button {
+        color: var(--pixel-primary);
+      }
+    }
     &[secondary] {
-      border-color: var(--pixel-secondary);
+      border: 2px solid var(--pixel-secondary);
+      > div.pixel-button {
+        color: var(--pixel-secondary);
+      }
     }
     &[accent] {
-      border-color: var(--pixel-accent);
+      border: 2px solid var(--pixel-accent);
+      > div.pixel-button {
+        color: var(--pixel-accent);
+      }
     }
-    > button {
+    &:hover, &:focus {
+      > .pixel-wrapper {
+        background-color: var(--pixel-wrapper-color);
+        opacity: var(--pixel-hover-amount);
+      }
+    }
+    &:active, &.active {
+      > .pixel-wrapper {
+        background-color: var(--pixel-wrapper-color);
+        opacity: var(--pixel-active-amount);
+      }
+    }
+    > div.pixel-button {
       padding: 5px 16px;
       &.icon {
-        padding: 0 2px;
+        padding: 0.5px 2px;
       }
     }
   }
@@ -123,52 +209,17 @@ pixel-button {
     > div.pixel-wrapper {
       border-radius: 16px;
     }
-    > button {
+    > div.pixel-button {
       border-radius: 16px;
       &.icon {
         padding: 0;
       }
     }
   }
-  // Stripped
-  &[stripped] {
-    > button {
-      background-image: linear-gradient(
-        135deg,
-        var(--pixel-button-background-color, var(--pixel-primary)) 25%,
-        rgba(0, 0, 0, .1) 25%,
-        rgba(0, 0, 0, .1) 50%,
-        var(--pixel-button-background-color, var(--pixel-primary)) 50%,
-        var(--pixel-button-background-color, var(--pixel-primary)) 75%,
-        rgba(0, 0, 0, .1) 75%,
-        rgba(0, 0, 0, .1) 100%);
-      background-size: 28.28px 28.28px;
-    }
-    &[secondary] {
-      > button {
-        background-image: linear-gradient(
-          135deg,
-          var(--pixel-button-background-color, var(--pixel-secondary)) 25%,
-          rgba(0, 0, 0, .1) 25%,
-          rgba(0, 0, 0, .1) 50%,
-          var(--pixel-button-background-color, var(--pixel-secondary)) 50%,
-          var(--pixel-button-background-color, var(--pixel-secondary)) 75%,
-          rgba(0, 0, 0, .1) 75%,
-          rgba(0, 0, 0, .1) 100%);
-      }
-    }
-    &[accent] {
-      > button {
-        background-image: linear-gradient(
-          135deg,
-          var(--pixel-button-background-color, var(--pixel-accent)) 25%,
-          rgba(0, 0, 0, .1) 25%,
-          rgba(0, 0, 0, .1) 50%,
-          var(--pixel-button-background-color, var(--pixel-accent)) 50%,
-          var(--pixel-button-background-color, var(--pixel-accent)) 75%,
-          rgba(0, 0, 0, .1) 75%,
-          rgba(0, 0, 0, .1) 100%);
-      }
+  // Uppercase
+  &[uppercase] {
+    > div.pixel-button {
+      text-transform: uppercase;
     }
   }
   // Disabled

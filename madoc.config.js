@@ -4,7 +4,16 @@ module.exports = {
   title: 'Pixel Components',
   description: pkg.description,
   distPath: '.docs',
-  // TODO watch
+  components: [
+    require('@madoc/component-repl')
+  ],
+  ignoredElements: [
+    'pixel-*'
+  ],
+  watch: [
+    'src/style',
+    'dist'
+  ],
   assets: [
     {
       src: 'src/style'

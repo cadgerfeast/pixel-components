@@ -1,0 +1,201 @@
+pixel-toggle {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 30px;
+  width: 60px;
+  border: 2px solid var(--pixel-toggle-border-color-1, var(--pixel-border-1));
+  user-select: none;
+  &:hover, &:focus {
+    outline: none;
+    > div.pixel-active-wrapper {
+      background-color: var(--pixel-wrapper-color);
+      opacity: var(--pixel-hover-amount);
+    }
+  } 
+  &:active {
+    outline: none;
+    > div.pixel-active-wrapper {
+      background-color: var(--pixel-wrapper-color);
+      opacity: var(--pixel-active-amount);
+    }
+  }
+  > div.pixel-active-wrapper {
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  > div.pixel-wrapper {
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    border-top: 2px solid rgba(0, 0, 0, .25);
+    border-bottom: 2px solid rgba(255, 255, 255, .25);
+  }
+  > div.slider {
+    height: 100%;
+    box-sizing: border-box;
+    > div.slider-switch {
+      position: absolute;
+      z-index: 2;
+      box-sizing: border-box;
+      height: 100%;
+      width: 50%;
+      border: 2px solid var(--pixel-toggle-border-color-2, var(--pixel-border-2));
+      > div.slider-switch-wrapper {
+        position: absolute;
+        box-sizing: border-box;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        pointer-events: none;
+        border-top: 2px solid rgba(255, 255, 255, .25);
+        border-bottom: 2px solid rgba(0, 0, 0, .25);
+      }
+    }
+  }
+  // Primary
+  &[primary] {
+    background-color: var(--pixel-toggle-background-color, var(--pixel-primary));
+    > div.pixel-wrapper {
+      background-image:
+        linear-gradient(
+          135deg,
+          var(--pixel-toggle-background-color, var(--pixel-primary)) 25%,
+          rgba(0, 0, 0, .25) 25%,
+          rgba(0, 0, 0, .25) 50%,
+          var(--pixel-toggle-background-color, var(--pixel-primary)) 50%,
+          var(--pixel-toggle-background-color, var(--pixel-primary)) 75%,
+          rgba(0, 0, 0, .25) 75%,
+          rgba(0, 0, 0, .25) 100%
+        );
+      background-size: 28.28px 28.28px;
+    }
+    > div.slider {
+      > div.slider-switch {
+        > div.slider-switch-wrapper {
+          background-color: var(--pixel-toggle-color, var(--pixel-primary));
+        }
+      }
+    }
+  }
+  // Secondary
+  &[secondary] {
+    background-color: var(--pixel-toggle-background-color, var(--pixel-secondary));
+    > div.pixel-wrapper {
+      background-image:
+        linear-gradient(
+          135deg,
+          var(--pixel-toggle-background-color, var(--pixel-secondary)) 25%,
+          rgba(0, 0, 0, .25) 25%,
+          rgba(0, 0, 0, .25) 50%,
+          var(--pixel-toggle-background-color, var(--pixel-secondary)) 50%,
+          var(--pixel-toggle-background-color, var(--pixel-secondary)) 75%,
+          rgba(0, 0, 0, .25) 75%,
+          rgba(0, 0, 0, .25) 100%
+        );
+      background-size: 28.28px 28.28px;
+    }
+    > div.slider {
+      > div.slider-switch {
+        > div.slider-switch-wrapper {
+          background-color: var(--pixel-toggle-color, var(--pixel-secondary));
+        }
+      }
+    }
+  }
+  // Accent
+  &[accent] {
+    background-color: var(--pixel-toggle-background-color, var(--pixel-accent));
+    > div.pixel-wrapper {
+      background-image:
+        linear-gradient(
+          135deg,
+          var(--pixel-toggle-background-color, var(--pixel-accent)) 25%,
+          rgba(0, 0, 0, .25) 25%,
+          rgba(0, 0, 0, .25) 50%,
+          var(--pixel-toggle-background-color, var(--pixel-accent)) 50%,
+          var(--pixel-toggle-background-color, var(--pixel-accent)) 75%,
+          rgba(0, 0, 0, .25) 75%,
+          rgba(0, 0, 0, .25) 100%
+        );
+      background-size: 28.28px 28.28px;
+    }
+    > div.slider {
+      > div.slider-switch {
+        > div.slider-switch-wrapper {
+          background-color: var(--pixel-toggle-color, var(--pixel-accent));
+        }
+      }
+    }
+  }
+  // Checked
+  &[checked] {
+    > div.slider {
+      > div.slider-switch {
+        left: 50%;
+      }
+    }
+  }
+  // Unchecked
+  &:not([checked]) {
+    background-color: #AAAAAA;
+    > div.pixel-wrapper {
+      background-image:
+        linear-gradient(
+          135deg,
+          #AAAAAA 25%,
+          rgba(0, 0, 0, .25) 25%,
+          rgba(0, 0, 0, .25) 50%,
+          #AAAAAA 50%,
+          #AAAAAA 75%,
+          rgba(0, 0, 0, .25) 75%,
+          rgba(0, 0, 0, .25) 100%
+        );
+      background-size: 28.28px 28.28px;
+    }
+    > div.slider {
+      > div.slider-switch {
+        > div.slider-switch-wrapper {
+          background-color: #AAAAAA;
+        }
+      }
+    }
+  }
+  // Rounded
+  &[rounded] {
+    border-radius: 16px;
+    > div.pixel-wrapper {
+      border-radius: 16px;
+    }
+    > div.pixel-active-wrapper {
+      border-radius: 16px;
+    }
+    > div.slider {
+      > div.slider-switch {
+        border-radius: 16px;
+        > div.slider-switch-wrapper {
+          border-radius: 16px;
+        }
+      }
+    }
+  }
+  // Disabled
+  &[disabled] {
+    pointer-events: none;
+    opacity: .5;
+  }
+}

@@ -1,11 +1,3 @@
-export function format(first: string, middle: string, last: string): string {
-  return (
-    (first || '') +
-    (middle ? ` ${middle}` : '') +
-    (last ? ` ${last}` : '')
-  );
-}
-
 export function replaceAll (source: string, from: string, to: string, caseSensitive = true): string {
   return source.replace(new RegExp(from.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, '\\$&'), (!caseSensitive ? 'gi' : 'g')), (typeof(to) === 'string') ? to.replace(/\$/g, '$$$$') : to);
 }

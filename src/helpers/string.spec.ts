@@ -1,4 +1,4 @@
-import { replaceAll } from './utils';
+import { replaceAll } from './string';
 
 describe('utils', () => {
   it('replaceAll()', () => {

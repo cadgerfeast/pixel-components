@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Alignment, Placement, } from "./helpers/style";
 export namespace Components {
     interface PixelButton {
         "accent": boolean;
@@ -19,11 +20,34 @@ export namespace Components {
         "raised": boolean;
         "secondary": boolean;
         "theme": string;
-        "uppercase": boolean;
     }
     interface PixelIcon {
         "grayscale": boolean;
         "svg": boolean;
+    }
+    interface PixelToggle {
+        "accent": boolean;
+        "autofocus": boolean;
+        "backgroundColor": string;
+        "borderColor1": string;
+        "borderColor2": string;
+        "checked": boolean;
+        "color": string;
+        "disabled": boolean;
+        "primary": boolean;
+        "secondary": boolean;
+    }
+    interface PixelTooltip {
+        "alignX": Alignment;
+        "alignY": Alignment;
+        "backgroundColor": string;
+        "borderColor": string;
+        "color": string;
+        "for": HTMLElement | string;
+        "offsetX": number | string;
+        "offsetY": number | string;
+        "offsetZ": string;
+        "placement": Placement;
     }
 }
 declare global {
@@ -39,9 +63,23 @@ declare global {
         prototype: HTMLPixelIconElement;
         new (): HTMLPixelIconElement;
     };
+    interface HTMLPixelToggleElement extends Components.PixelToggle, HTMLStencilElement {
+    }
+    var HTMLPixelToggleElement: {
+        prototype: HTMLPixelToggleElement;
+        new (): HTMLPixelToggleElement;
+    };
+    interface HTMLPixelTooltipElement extends Components.PixelTooltip, HTMLStencilElement {
+    }
+    var HTMLPixelTooltipElement: {
+        prototype: HTMLPixelTooltipElement;
+        new (): HTMLPixelTooltipElement;
+    };
     interface HTMLElementTagNameMap {
         "pixel-button": HTMLPixelButtonElement;
         "pixel-icon": HTMLPixelIconElement;
+        "pixel-toggle": HTMLPixelToggleElement;
+        "pixel-tooltip": HTMLPixelTooltipElement;
     }
 }
 declare namespace LocalJSX {
@@ -58,15 +96,40 @@ declare namespace LocalJSX {
         "raised"?: boolean;
         "secondary"?: boolean;
         "theme"?: string;
-        "uppercase"?: boolean;
     }
     interface PixelIcon {
         "grayscale"?: boolean;
         "svg"?: boolean;
     }
+    interface PixelToggle {
+        "accent"?: boolean;
+        "autofocus"?: boolean;
+        "backgroundColor"?: string;
+        "borderColor1"?: string;
+        "borderColor2"?: string;
+        "checked"?: boolean;
+        "color"?: string;
+        "disabled"?: boolean;
+        "primary"?: boolean;
+        "secondary"?: boolean;
+    }
+    interface PixelTooltip {
+        "alignX"?: Alignment;
+        "alignY"?: Alignment;
+        "backgroundColor"?: string;
+        "borderColor"?: string;
+        "color"?: string;
+        "for"?: HTMLElement | string;
+        "offsetX"?: number | string;
+        "offsetY"?: number | string;
+        "offsetZ"?: string;
+        "placement"?: Placement;
+    }
     interface IntrinsicElements {
         "pixel-button": PixelButton;
         "pixel-icon": PixelIcon;
+        "pixel-toggle": PixelToggle;
+        "pixel-tooltip": PixelTooltip;
     }
 }
 export { LocalJSX as JSX };
@@ -75,6 +138,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "pixel-button": LocalJSX.PixelButton & JSXBase.HTMLAttributes<HTMLPixelButtonElement>;
             "pixel-icon": LocalJSX.PixelIcon & JSXBase.HTMLAttributes<HTMLPixelIconElement>;
+            "pixel-toggle": LocalJSX.PixelToggle & JSXBase.HTMLAttributes<HTMLPixelToggleElement>;
+            "pixel-tooltip": LocalJSX.PixelTooltip & JSXBase.HTMLAttributes<HTMLPixelTooltipElement>;
         }
     }
 }

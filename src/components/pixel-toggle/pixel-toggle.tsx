@@ -2,49 +2,35 @@ import { Component, Element, Host, h, Prop, State } from '@stencil/core';
 import { KeyboardCode } from '../../helpers/keyboard';
 
 @Component({
-  tag: 'pixel-button',
-  styleUrl: 'pixel-button.scss',
+  tag: 'pixel-toggle',
+  styleUrl: 'pixel-toggle.scss',
   shadow: false
 })
-export class PixelButton {
+export class PixelToggle {
   @Element() root: HTMLElement;
   // Props
   @Prop() autofocus = false;
   @Prop() disabled = false;
-  @Prop() flat = false;
-  @Prop({ reflect: true }) raised = false;
-  @Prop() outlined = false;
-  @Prop() theme: string;
+  @Prop({ reflect: true }) checked: boolean;
   @Prop() primary = false;
   @Prop({ reflect: true }) secondary = false;
   @Prop() accent = false;
   @Prop() color: string;
   @Prop() backgroundColor: string;
-  @Prop() borderColor: string;
+  @Prop() borderColor1: string;
+  @Prop() borderColor2: string;
   // State
   @State() hasTriggeredOnce: boolean = false;
-  @State() active: boolean = false;
   // Computed
-  get hasPixelIcon () {
-    const child = this.root.querySelector('pixel-icon');
-    return child && child.tagName === 'PIXEL-ICON';
-  }
   get computedStyle () {
     return {
-      ...(this.color && { '--pixel-button-color': this.color }),
-      ...(this.backgroundColor && { '--pixel-button-background-color': this.backgroundColor }),
-      ...(this.borderColor && { '--pixel-button-border-color': this.borderColor })
+      ...(this.color && { '--pixel-toggle-color': this.color }),
+      ...(this.backgroundColor && { '--pixel-toggle-background-color': this.backgroundColor }),
+      ...(this.borderColor1 && { '--pixel-toggle-border-color-1': this.borderColor1 }),
+      ...(this.borderColor2 && { '--pixel-toggle-border-color-2': this.borderColor2 })
     };
   }
   // Handlers
-  onKeyDown (e: KeyboardEvent) {
-    switch (e.code) {
-      case KeyboardCode.SPACE:
-      case KeyboardCode.ENTER:
-        this.active = true;
-        break;
-    }
-  }
   onKeyPress (e: KeyboardEvent) {
     switch (e.code) {
       case KeyboardCode.SPACE:
@@ -61,17 +47,16 @@ export class PixelButton {
     switch (e.code) {
       case KeyboardCode.SPACE:
       case KeyboardCode.ENTER:
-        this.active = false;
         this.hasTriggeredOnce = false;
         break;
     }
   }
+  onClick () {
+    this.checked = !this.checked;
+    this.root.dispatchEvent(new CustomEvent('change', { detail: this.checked }));
+  }
   // Lifecycle
   componentWillRender () {
-    // Default Shape
-    if (!this.flat && !this.raised && !this.outlined) {
-      this.raised = true;
-    }
     // Default Theme
     if (!this.primary && !this.secondary && !this.accent) {
       this.secondary = true;
@@ -86,20 +71,16 @@ export class PixelButton {
     return (
       <Host
         tabIndex={(this.disabled) ? -1 : 0}
-        onKeyDown={(e: KeyboardEvent) => { this.onKeyDown(e) }}
-        onKeypress={(e: KeyboardEvent) => { this.onKeyPress(e) }}
-        onKeyUp={(e: KeyboardEvent) => { this.onKeyUp(e) }}
-        class={{
-          'active': this.active
-        }}
+        onClick={() => this.onClick()}
+        onKeyPress={(event: KeyboardEvent) => this.onKeyPress(event)}
+        onKeyUp={(event: KeyboardEvent) => this.onKeyUp(event)}
         style={this.computedStyle}>
+        <div class="pixel-active-wrapper"/>
         <div class="pixel-wrapper"/>
-        <div
-          class={{
-            'pixel-button': true,
-            'icon': this.hasPixelIcon
-          }}>
-          <slot/>
+        <div class="slider">
+          <div class={{ 'slider-switch': true, 'active': this.checked }}>
+            <div class="slider-switch-wrapper"/>
+          </div>
         </div>
       </Host>
     );
