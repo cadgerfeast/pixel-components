@@ -1,7 +1,7 @@
 {
   "name": "@pixel/components",
   "description": "Pixel Styled Stencil WebComponents",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
