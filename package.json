@@ -1,7 +1,7 @@
 {
   "name": "@pixel/components",
   "description": "Pixel Styled Stencil WebComponents",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
@@ -10,10 +10,6 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/pixel-components/pixel-components.js",
-  "files": [
-    "dist/",
-    "loader/"
-  ],
   "scripts": {
     "dev": "run-p dev:lib dev:docs",
     "dev:lib": "stencil build --dev --watch",
@@ -25,11 +21,29 @@
     "build:docs": "madoc build",
     "serve": "madoc serve"
   },
+  "keywords": [
+    "pixel",
+    "components",
+    "pixel-components"
+  ],
+  "author": "Jérémie Pichon <contact@cadgerfeast.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cadgerfeast/pixel-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cadgerfeast/pixel-components/issues"
+  },
+  "files": [
+    "dist/",
+    "loader/"
+  ],
   "devDependencies": {
     "@madoc/component-repl": "0.0.8",
     "@madoc/core": "0.0.20",
     "@pixel/fonts": "0.0.1",
-    "@pixel/icons": "0.0.9",
+    "@pixel/icons": "0.0.12",
     "@stencil/core": "1.12.2",
     "@stencil/sass": "1.3.2",
     "@types/jest": "24.9.1",
@@ -37,6 +51,5 @@
     "jest-cli": "24.9.0",
     "npm-run-all": "4.1.5"
   },
-  "license": "MIT",
   "dependencies": {}
 }
