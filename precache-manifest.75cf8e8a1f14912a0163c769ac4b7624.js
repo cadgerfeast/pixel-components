@@ -36,7 +36,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/assets/cjs/pixel-components.cjs.js"
   },
   {
-    "revision": "f2c556dc9bc994a4caf90f73e03bf8de",
+    "revision": "18a672ced0b8859dfbdcda923713d104",
     "url": "/assets/cjs/pixel-icon.cjs.entry.js"
   },
   {
@@ -132,7 +132,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/assets/esm-es5/pixel-components.mjs"
   },
   {
-    "revision": "0e6618625515fb111e6d034a8aaeac48",
+    "revision": "12bf7c393057cb745ddec3e38429d24e",
     "url": "/assets/esm-es5/pixel-icon.entry.js"
   },
   {
@@ -176,7 +176,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/assets/esm/pixel-components.mjs"
   },
   {
-    "revision": "a2b06949f086d153619f4b5be37459e6",
+    "revision": "ceaf005f3e3b941a5e82a846dc78ed9d",
     "url": "/assets/esm/pixel-icon.entry.js"
   },
   {
@@ -260,27 +260,47 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/assets/fonts/PixelArialBold.woff2"
   },
   {
-    "revision": "80bdfd6c248fa423a0b9ab1063613403",
+    "revision": "5e203d5681e4ae7e9412b845579605e9",
     "url": "/assets/icons/PixelIcons.css"
   },
   {
-    "revision": "66cf4972a0418748b1eee341a49af82e",
+    "revision": "15843ffa657566ec81dbb5361fdba44f",
     "url": "/assets/icons/PixelIcons.eot"
   },
   {
-    "revision": "40f7e3e5ad9cab6b099c2c8d7d624cb4",
+    "revision": "12d98ea44b9736d22af74991fc78d929",
+    "url": "/assets/icons/PixelIcons.less"
+  },
+  {
+    "revision": "42a181bdb092061d95a5bde7df1812e0",
+    "url": "/assets/icons/PixelIcons.module.less"
+  },
+  {
+    "revision": "1b4cd59a6986786b9333580d31cf39c8",
+    "url": "/assets/icons/PixelIcons.scss"
+  },
+  {
+    "revision": "12d98ea44b9736d22af74991fc78d929",
+    "url": "/assets/icons/PixelIcons.styl"
+  },
+  {
+    "revision": "1bd7bff00bbf50620c3626aa529ee342",
     "url": "/assets/icons/PixelIcons.svg"
   },
   {
-    "revision": "9ae32b639584bf39fc8ed3a1c63152e3",
+    "revision": "600efa1c5f4206ca26a7909924b20e2f",
+    "url": "/assets/icons/PixelIcons.symbol.svg"
+  },
+  {
+    "revision": "3501414f3a230e34a0c450d6e0b5522c",
     "url": "/assets/icons/PixelIcons.ttf"
   },
   {
-    "revision": "cd3141a2959e2f41e50232ec95dc4dde",
+    "revision": "9bdb25f52db49ccc8f18c26d40e77dbe",
     "url": "/assets/icons/PixelIcons.woff"
   },
   {
-    "revision": "0e40bda68772c53ecb4504d890f04992",
+    "revision": "1d6f7729a75a67d25cb68c835f28e147",
     "url": "/assets/icons/PixelIcons.woff2"
   },
   {
@@ -644,10 +664,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/assets/pixel-components/index.esm.js"
   },
   {
-    "revision": "a0e8292142af3a9aa2a31d1bdeebe421",
-    "url": "/assets/pixel-components/p-0048c24d.entry.js"
-  },
-  {
     "revision": "3e821f44b6a3efa5198486b2466047a9",
     "url": "/assets/pixel-components/p-0bf20657.system.entry.js"
   },
@@ -668,7 +684,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/assets/pixel-components/p-2f8c282d.system.js"
   },
   {
-    "revision": "f5fa539d33bab6800169cdb4d44e6aee",
+    "revision": "a6e1ce9ae3f4e4048f1d55f6218f9e69",
     "url": "/assets/pixel-components/p-453c6182.system.js"
   },
   {
@@ -684,6 +700,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/assets/pixel-components/p-5147130d.system.entry.js"
   },
   {
+    "revision": "365765ced0a2004a21344a5762251f1a",
+    "url": "/assets/pixel-components/p-56aafce8.system.entry.js"
+  },
+  {
     "revision": "0bbd31ef8fff200dca78b9f066187fd4",
     "url": "/assets/pixel-components/p-615478b9.js"
   },
@@ -694,10 +714,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "818571d50651528538528b888ac9f625",
     "url": "/assets/pixel-components/p-86b80675.js"
-  },
-  {
-    "revision": "1c5f28eee5b4c38438d7526fa2e0ce2c",
-    "url": "/assets/pixel-components/p-9c7efb70.system.entry.js"
   },
   {
     "revision": "9cbfc1cf747db5d3a308db05969faea4",
@@ -716,7 +732,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/assets/pixel-components/p-c6833af0.system.js"
   },
   {
-    "revision": "ddb50419d419ed1b4994c92e40e90b90",
+    "revision": "1467131cba05da023bf42954ffdceea9",
+    "url": "/assets/pixel-components/p-d1a1fc23.entry.js"
+  },
+  {
+    "revision": "253b16bc7586ecdf0820fc3fd369f99f",
     "url": "/assets/pixel-components/pixel-components.esm.js"
   },
   {

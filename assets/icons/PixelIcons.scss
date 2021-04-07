@@ -1,5 +1,4 @@
-@font-face {
-  font-family: "PixelIcons";
+@font-face {font-family: "PixelIcons";
   src: url('PixelIcons.eot?t=1617802285402'); /* IE9*/
   src: url('PixelIcons.eot?t=1617802285402#iefix') format('embedded-opentype'), /* IE6-IE8 */
   url("PixelIcons.woff2?t=1617802285402") format("woff2"),
@@ -10,12 +9,11 @@
 
 [class^="pi-"], [class*=" pi-"] {
   font-family: 'PixelIcons' !important;
-  font-size:30px;
+  font-size: 30px;
   font-style:normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 
 .pi-bronze-coin:before { content: "\ea01"; }
 .pi-chat:before { content: "\ea02"; }
@@ -35,3 +33,23 @@
 .pi-pizza-slice:before { content: "\ea10"; }
 .pi-refresh:before { content: "\ea11"; }
 .pi-silver-coin:before { content: "\ea12"; }
+
+$pi-bronze-coin: "\ea01";
+$pi-chat: "\ea02";
+$pi-chevron-left: "\ea03";
+$pi-chevron-right: "\ea04";
+$pi-circuit: "\ea05";
+$pi-code: "\ea06";
+$pi-diamond: "\ea07";
+$pi-dino: "\ea08";
+$pi-eye: "\ea09";
+$pi-floppy-disk: "\ea0a";
+$pi-gold-coin: "\ea0b";
+$pi-home: "\ea0c";
+$pi-internet-explorer: "\ea0d";
+$pi-phone: "\ea0e";
+$pi-pipe-top: "\ea0f";
+$pi-pizza-slice: "\ea10";
+$pi-refresh: "\ea11";
+$pi-silver-coin: "\ea12";
+
